@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<BCPFORMAT xmlns="http://schemas.microsoft.com/sqlserver/2004/bulkload/format" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<!-- MS公式サンプルはhttpsだがhttpに変更 -->
+<!--
+    BULK INSERT dbo.SampleTable FROM 'D:\ImportFile.csv' WITH(FORMATFILE='D:\BulkInsertFormat.xml',FIELDTERMINATOR=',',ROWTERMINATOR='\r\n',FIRSTROW='2')
+    GO
+-->
+  <RECORD>
+    <!-- CSV側の設定。 -->
+    <FIELD ID="1"   xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="2"   xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="3"   xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="4"   xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="5"   xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="6"   xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="10"  xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="56"  xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="57"  xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="79"  xsi:type="CharTerm" TERMINATOR=","   COLLATION="Japanese_XJIS_100_BIN2"/>
+    <FIELD ID="84"  xsi:type="CharTerm" TERMINATOR="\r\n"   COLLATION="Japanese_XJIS_100_BIN2"/>
+  </RECORD>
+  <ROW>  
+    <!-- テーブル側の設定。SOURCE=RECORD.FIELD.ID -->
+    <COLUMN SOURCE="1" name="ID"            xsi:type="SQLCHAR"    />
+    <COLUMN SOURCE="2" name="GYO_NO"        xsi:type="SQLINT"     />
+    <COLUMN SOURCE="3" name="CUSTOMER"      xsi:type="SQLCHAR"    />
+    <COLUMN SOURCE="4" name="CUSTOMER_TYPE" xsi:type="SQLCHAR"    />
+    <COLUMN SOURCE="5" name="SHOP_ID"       xsi:type="SQLCHAR"    />
+    <COLUMN SOURCE="6" name="SHOP_RANK"     xsi:type="SQLINT"     />
+    <COLUMN SOURCE="56" name="MONTH_RATIO"  xsi:type="SQLFLT4"    />
+    <COLUMN SOURCE="57" name="YEAR_RATIO"   xsi:type="SQLFLT4"    />
+    <COLUMN SOURCE="10" name="SALES_TYPE"   xsi:type="SQLCHAR"    />
+    <COLUMN SOURCE="79" name="SKSSN_YMD"    xsi:type="SQLDATETIME"/>
+    <COLUMN SOURCE="84" name="MANAGER_ID"   xsi:type="SQLCHAR"   />
+  </ROW>  
+</BCPFORMAT>  
